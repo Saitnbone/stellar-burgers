@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TConstructorIngredient, TOrder } from '@utils-types';
+import { TConstructorIngredient } from '@utils-types';
 
 // Настройка для начального состояния слоя
 type TBurgerCartState = {

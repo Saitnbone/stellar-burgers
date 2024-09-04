@@ -4,19 +4,12 @@ import { useInView } from 'react-intersection-observer';
 import { TIngredient, TTabMode } from '@utils-types';
 import { BurgerIngredientsUI } from '../ui/burger-ingredients';
 import { RootState } from '../../services/store';
-// import { useDispatch } from '../../services/store';
 import { useSelector } from '../../services/store';
-// import { fetchIngredienst } from '../../services/slices/ingredients';
 
 export const BurgerIngredients: FC = () => {
-  // const dispatch = useDispatch();
   const ingredients = useSelector(
     (state: RootState) => state.ingredients.ingredients
   );
-
-  // useEffect(() => {
-  //   dispatch(fetchIngredienst());
-  // }, [dispatch]);
 
   // Переключатель категорий товаров
   const buns = ingredients.filter(

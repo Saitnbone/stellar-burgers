@@ -6,8 +6,6 @@ import { TBurgerIngredientProps } from './type';
 import { useDispatch } from '../../services/store';
 import { addBun, addIngredient } from '../../services/slices/cartBurger';
 import { showIngredientDetails } from '../../services/slices/ingredients';
-
-// ('src/services/slices/cartBurder');
 import { TConstructorIngredient } from '@utils-types';
 import { nanoid } from '@reduxjs/toolkit';
 

@@ -58,9 +58,9 @@ const userSlice = createSlice({
       .addCase(registerUser.rejected, (state, action) => {
         state.error = action.error?.message || null;
       });
+
     // Получение информации о пользователе
     builder
-
       .addCase(getApiUser.fulfilled, (state, action) => {
         state.isAuthChecked = true;
         state.user = action.payload.user;
@@ -70,13 +70,13 @@ const userSlice = createSlice({
         state.isAuthChecked = false;
         state.error = action.error?.message || null;
       });
+
     //   Логирование пользователя в приложении
     builder
       .addCase(loginUser.pending, (state) => {
         state.isAuthChecked = false;
         state.error = null;
       })
-
       .addCase(loginUser.fulfilled, (state, action) => {
         state.isAuthChecked = true;
         state.error = null;
@@ -86,14 +86,15 @@ const userSlice = createSlice({
         state.isAuthChecked = false;
         state.error = action.error.message!;
       });
+
     //   Выход пользователя из приложения
     builder.addCase(logoutUser.fulfilled, (state) => (state = initialState));
+
     // Обновление информации о пользователе
     builder
       .addCase(updateUser.pending, (state) => {
         state.error = null;
       })
-
       .addCase(updateUser.fulfilled, (state, action) => {
         state.isAuthChecked = true;
         state.user = action.payload.user;

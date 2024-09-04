@@ -1,4 +1,4 @@
-import { FC, useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { TConstructorIngredient } from '@utils-types';
 import { BurgerConstructorUI } from '@ui';
 import { useDispatch, useSelector } from '../../services/store';
@@ -27,6 +27,7 @@ export const BurgerConstructor = () => {
     ingredients
   };
 
+  // Добавление заказа
   const onOrderClick = () => {
     if (!userIsAuth) {
       navigate('/login');
@@ -41,7 +42,6 @@ export const BurgerConstructor = () => {
     }
   };
   // Закрытие моального окна с информацией о заказе
-
   const closeOrderModal = () => {
     dispatch(clearOrder());
     navigate('/');

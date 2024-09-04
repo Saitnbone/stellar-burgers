@@ -4,7 +4,7 @@ import { TIngredient } from '@utils-types';
 import { getIngredientsApi } from '../../utils/burger-api';
 
 // Интерфейс начального состояния
-type IngredientsState = {
+type TIngredientsState = {
   ingredientData: TIngredient | null;
   ingredients: TIngredient[];
   loading: boolean;
@@ -12,7 +12,7 @@ type IngredientsState = {
 };
 
 // Настройки для начального состояния
-const initialState: IngredientsState = {
+const initialState: TIngredientsState = {
   ingredientData: null,
   ingredients: [],
   loading: false,
@@ -22,7 +22,7 @@ const initialState: IngredientsState = {
 // Thunk слоя для получения данных ингредиентов
 export const fetchIngredienst = createAsyncThunk(
   '/ingredients/fetchIngredienst',
-  async () => getIngredientsApi()
+  getIngredientsApi
 );
 
 // Слой индрегдиентов

@@ -23,10 +23,8 @@ import { ProtectedRoute } from '../protectedRoute/protectedRoute';
 import '../../index.css';
 import { useDispatch } from '../../services/store';
 import { useEffect } from 'react';
-// import React from 'react';
 import { getApiUser } from '../../services/slices/user';
 import { fetchIngredienst } from '../../services/slices/ingredients';
-// import { fetchUserInformation } from '../../services/slices/userInfo';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -35,8 +33,10 @@ const App = () => {
   // Проверка, на наличие свойства background
   const background = location.state?.background;
 
-  //Проверяем, совпадает ли текущий маршрут с /profile/orders/:number или
-  // /feed/:number и извлекаем параметр number  при совпадении
+  /*
+  Проверяем, совпадает ли текущий маршрут с /profile/orders/:number или
+  /feed/:number и извлекаем параметр number  при совпадении
+  */
   const profileMatch = useMatch('/profile/orders/:number')?.params.number;
   const feedMatch = useMatch('/feed/:number')?.params.number;
 
@@ -111,6 +111,7 @@ const App = () => {
         {/* Роут для не найденых страниц  */}
         <Route path='*' element={<NotFound404 />} />
       </Routes>
+
       {/* Роуты для модальных окон */}
       {background && (
         <Routes>
