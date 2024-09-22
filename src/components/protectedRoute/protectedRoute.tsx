@@ -1,6 +1,6 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import { useSelector } from '../../services/store';
-import { checkUserAuth } from '../../services/slices/user';
+import { checkUserAuth } from '../../services/slices/user/user';
 
 // Тип для защищенного роута
 type TProtectedRouteProps = {

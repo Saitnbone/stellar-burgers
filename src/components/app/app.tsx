@@ -23,8 +23,8 @@ import { ProtectedRoute } from '../protectedRoute/protectedRoute';
 import '../../index.css';
 import { useDispatch } from '../../services/store';
 import { useEffect } from 'react';
-import { getApiUser } from '../../services/slices/user';
-import { fetchIngredienst } from '../../services/slices/ingredients';
+import { getApiUser } from '../../services/slices/user/user';
+import { fetchIngredienst } from '../../services/slices/ingredients/ingredients';
 
 const App = () => {
   const dispatch = useDispatch();

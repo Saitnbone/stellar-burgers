@@ -8,12 +8,12 @@ type TBurgerCartState = {
 };
 
 // Начальное состояние
-const initialState: TBurgerCartState = {
+export const initialState: TBurgerCartState = {
   bun: null,
   ingredients: []
 };
 
-const cartBurgerSlice = createSlice({
+export const cartBurgerSlice = createSlice({
   name: 'burgerCart',
   initialState,
   reducers: {

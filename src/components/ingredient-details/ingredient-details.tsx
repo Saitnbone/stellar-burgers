@@ -5,7 +5,7 @@ import { useSelector } from '../../services/store';
 import { useDispatch, RootState } from '../../services/store';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { showIngredientDetails } from '../../services/slices/ingredients';
+import { showIngredientDetails } from '../../services/slices/ingredients/ingredients';
 
 export const IngredientDetails: FC = () => {
   /** TODO: взять переменную из стора */

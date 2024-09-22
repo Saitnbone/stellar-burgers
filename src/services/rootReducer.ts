@@ -1,12 +1,12 @@
 // Импорты
 import { combineReducers } from 'redux';
 
-import ingredientReduser from './slices/ingredients';
-import cartReducer from './slices/cartBurger';
-import newOrderReducer from './slices/order/newOrder';
-import ordersListReducer from './slices/order/orderList';
-import feedsReducer from './slices/feeds';
-import userReducer from './slices/user';
+import ingredientReduser from './slices/ingredients/ingredients';
+import cartReducer from './slices/cart-burger/cartBurger';
+import newOrderReducer from './slices/order/new-order/newOrder';
+import ordersListReducer from './slices/order/order-list/orderList';
+import feedsReducer from './slices/feeds/feeds';
+import userReducer from './slices/user/user';
 
 // Корневой редьюсер использует комбайн
 const rootReducer = combineReducers({

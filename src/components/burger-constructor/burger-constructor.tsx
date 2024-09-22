@@ -7,10 +7,10 @@ import {
   getNewOrderModalData,
   getNewOrderRequest,
   getNewOrder
-} from '../../services/slices/order/newOrder';
+} from '../../services/slices/order/new-order/newOrder';
 import { useNavigate } from 'react-router-dom';
-import { clearBurgerCart } from '../../services/slices/cartBurger';
-import { checkUserAuth } from '../../services/slices/user';
+import { clearBurgerCart } from '../../services/slices/cart-burger/cartBurger';
+import { checkUserAuth } from '../../services/slices/user/user';
 
 export const BurgerConstructor = () => {
   const navigate = useNavigate();

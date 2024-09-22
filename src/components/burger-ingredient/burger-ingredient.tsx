@@ -4,8 +4,11 @@ import { useLocation } from 'react-router-dom';
 import { BurgerIngredientUI } from '@ui';
 import { TBurgerIngredientProps } from './type';
 import { useDispatch } from '../../services/store';
-import { addBun, addIngredient } from '../../services/slices/cartBurger';
-import { showIngredientDetails } from '../../services/slices/ingredients';
+import {
+  addBun,
+  addIngredient
+} from '../../services/slices/cart-burger/cartBurger';
+import { showIngredientDetails } from '../../services/slices/ingredients/ingredients';
 import { TConstructorIngredient } from '@utils-types';
 import { nanoid } from '@reduxjs/toolkit';
 

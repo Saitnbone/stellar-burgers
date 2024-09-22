@@ -1,7 +1,7 @@
 // Импорты
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { TIngredient } from '@utils-types';
-import { getIngredientsApi } from '../../utils/burger-api';
+import { getIngredientsApi } from '../../../utils/burger-api';
 
 // Интерфейс начального состояния
 type TIngredientsState = {
@@ -12,7 +12,7 @@ type TIngredientsState = {
 };
 
 // Настройки для начального состояния
-const initialState: TIngredientsState = {
+export const initialState: TIngredientsState = {
   ingredientData: null,
   ingredients: [],
   loading: false,
@@ -51,7 +51,7 @@ const ingredientsSlice = createSlice({
       })
       .addCase(fetchIngredienst.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload as string;
+        state.error = action.error.message || 'Ошибка загрузки';
       });
   }
 });
