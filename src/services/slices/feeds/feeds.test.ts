@@ -3,7 +3,7 @@ import { expect, test, describe } from '@jest/globals';
 import { initialState, fetchGetFeed } from './feeds';
 import feedsReducer from './feeds';
 
-describe('', () => {
+describe('Проверка слоя "feedsSlice"', () => {
   const feedsData = {
     orders: [
       {
