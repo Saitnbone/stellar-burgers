@@ -57,6 +57,7 @@ const App = () => {
         <Route path='/feed' element={<Feed />} />
         <Route path='/ingredients/:id' element={<IngredientDetails />} />
         <Route path='/feed/:number' element={<OrderInfo />} />
+        <Route path='/profile/orders/:number' element={<OrderInfo />} />
 
         {/* Защищенные роуты для приложения */}
         <Route
@@ -118,10 +119,7 @@ const App = () => {
           <Route
             path='/feed/:number'
             element={
-              <Modal
-                title={`#${orderNumber && orderNumber.padStart(6, '0')}`}
-                onClose={() => navigate(-1)}
-              >
+              <Modal title='Заказ' onClose={() => navigate(-1)}>
                 <OrderInfo />
               </Modal>
             }
@@ -129,7 +127,7 @@ const App = () => {
           <Route
             path='/ingredients/:id'
             element={
-              <Modal title={'Детали ингридиента'} onClose={() => navigate(-1)}>
+              <Modal title='Детали ингридиента' onClose={() => navigate(-1)}>
                 <IngredientDetails />
               </Modal>
             }
@@ -137,10 +135,7 @@ const App = () => {
           <Route
             path='/profile/orders/:number'
             element={
-              <Modal
-                title={`#${orderNumber && orderNumber.padStart(6, '0')}`}
-                onClose={() => navigate(-1)}
-              >
+              <Modal title='Информация по заказу' onClose={() => navigate(-1)}>
                 <ProtectedRoute>
                   <OrderInfo />
                 </ProtectedRoute>
