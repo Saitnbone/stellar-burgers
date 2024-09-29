@@ -55,8 +55,31 @@ const App = () => {
       <Routes location={background || location}>
         <Route path='/' element={<ConstructorPage />} />
         <Route path='/feed' element={<Feed />} />
-        <Route path='/ingredients/:id' element={<IngredientDetails />} />
-        <Route path='/feed/:number' element={<OrderInfo />} />
+        <Route
+          path='/ingredients/:id'
+          element={
+            <div className={styles.detailPageWrap}>
+              <p className={`text text_type_main-large ${styles.detailHeader}`}>
+                Детали ингредиента
+              </p>
+              <IngredientDetails />
+            </div>
+          }
+        />
+
+        <Route
+          path='/feed/:number'
+          element={
+            <div className={styles.detailPageWrap}>
+              <p
+                className={`text text_type_digits-default ${styles.detailHeader}`}
+              >
+                {`#${location.pathname.split('/')[2]}`}
+              </p>
+              <OrderInfo />
+            </div>
+          }
+        />
         <Route path='/profile/orders/:number' element={<OrderInfo />} />
 
         {/* Защищенные роуты для приложения */}
@@ -119,7 +142,10 @@ const App = () => {
           <Route
             path='/feed/:number'
             element={
-              <Modal title='Заказ' onClose={() => navigate(-1)}>
+              <Modal
+                title={`#${orderNumber && orderNumber.padStart(6, '0')}`}
+                onClose={() => navigate(-1)}
+              >
                 <OrderInfo />
               </Modal>
             }
