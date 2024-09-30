@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { TOrder } from '../../utils/types';
-import { getFeedsApi } from '../../utils/burger-api';
+import { TOrder } from '@utils-types';
+import { getFeedsApi } from '../../../utils/burger-api';
 
 // Тип для для начального состояния
 type TFeeds = {
@@ -10,7 +10,7 @@ type TFeeds = {
 };
 
 // Начальное состояние
-const initialState: TFeeds = {
+export const initialState: TFeeds = {
   orders: [],
   total: 0,
   totalToday: 0

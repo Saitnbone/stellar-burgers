@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { TUser } from '../../utils/types';
+import { TUser } from '../../../utils/types';
 import {
   registerUserApi,
   loginUserApi,
   updateUserApi,
   logoutApi,
   getUserApi
-} from '../../utils/burger-api';
+} from '../../../utils/burger-api';
 
 // Тип для начального состояния пользователя
 type TUserState = {

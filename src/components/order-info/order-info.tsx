@@ -4,7 +4,7 @@ import { OrderInfoUI } from '../ui/order-info';
 import { TIngredient, TOrder } from '../../utils/types';
 
 import { useSelector } from '../../services/store';
-import { getIngredients } from '../../services/slices/ingredients';
+import { getIngredients } from '../../services/slices/ingredients/ingredients';
 import { useParams } from 'react-router-dom';
 import { getOrderByNumberApi } from '@api';
 

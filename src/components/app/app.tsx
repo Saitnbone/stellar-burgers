@@ -23,8 +23,8 @@ import { ProtectedRoute } from '../protectedRoute/protectedRoute';
 import '../../index.css';
 import { useDispatch } from '../../services/store';
 import { useEffect } from 'react';
-import { getApiUser } from '../../services/slices/user';
-import { fetchIngredienst } from '../../services/slices/ingredients';
+import { getApiUser } from '../../services/slices/user/user';
+import { fetchIngredienst } from '../../services/slices/ingredients/ingredients';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -55,8 +55,32 @@ const App = () => {
       <Routes location={background || location}>
         <Route path='/' element={<ConstructorPage />} />
         <Route path='/feed' element={<Feed />} />
-        <Route path='/ingredients/:id' element={<IngredientDetails />} />
-        <Route path='/feed/:number' element={<OrderInfo />} />
+        <Route
+          path='/ingredients/:id'
+          element={
+            <div className={styles.detailPageWrap}>
+              <p className={`text text_type_main-large ${styles.detailHeader}`}>
+                Детали ингредиента
+              </p>
+              <IngredientDetails />
+            </div>
+          }
+        />
+
+        <Route
+          path='/feed/:number'
+          element={
+            <div className={styles.detailPageWrap}>
+              <p
+                className={`text text_type_digits-default ${styles.detailHeader}`}
+              >
+                {`#${location.pathname.split('/')[2]}`}
+              </p>
+              <OrderInfo />
+            </div>
+          }
+        />
+        <Route path='/profile/orders/:number' element={<OrderInfo />} />
 
         {/* Защищенные роуты для приложения */}
         <Route
@@ -129,7 +153,7 @@ const App = () => {
           <Route
             path='/ingredients/:id'
             element={
-              <Modal title={'Детали ингридиента'} onClose={() => navigate(-1)}>
+              <Modal title='Детали ингридиента' onClose={() => navigate(-1)}>
                 <IngredientDetails />
               </Modal>
             }
@@ -137,10 +161,7 @@ const App = () => {
           <Route
             path='/profile/orders/:number'
             element={
-              <Modal
-                title={`#${orderNumber && orderNumber.padStart(6, '0')}`}
-                onClose={() => navigate(-1)}
-              >
+              <Modal title='Информация по заказу' onClose={() => navigate(-1)}>
                 <ProtectedRoute>
                   <OrderInfo />
                 </ProtectedRoute>
